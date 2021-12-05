@@ -1,0 +1,48 @@
+:root{
+    --transition: 0.2;
+    --bg-one: hsl(280, 60%, 5%);
+    --bg-two: hsl(280, 90%, 15%);
+    --stop: 40;
+    --angle: 45;
+    --border-width: 5;
+    --padlock-size: 300;
+    --border-radius: 6;
+}
+.containerr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    width: 70%;
+}
+
+button {
+    color: white;
+    background-color: var(--bg-one);
+    width: 10%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: -apple-system;
+    cursor: pointer;
+}
+button:hover{
+    opacity: 90%;
+
+}
+input {
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-width: calc(var(--border-width) * 1px);
+    border-style: solid;
+    border-color: var(--accent);
+    border-radius: calc(var(--border-radius) * 1px);
+    text-align: center;
+    outline: transparent;
+    width: 100%;
+    transition: border-color calc(var(--transition, 0.2) * 1s) ease;
+    --accent: hsla(10, 100%, 50%, 0.5);
+}
+input:focus {
+    outline: none;
+}
