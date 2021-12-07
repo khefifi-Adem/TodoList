@@ -1,37 +1,36 @@
 import React from "react";
 import './ListTask.css'
+import {Checkbox} from "@mui/material";
 import {useSelector} from "react-redux";
-// const todoList = [
-//     {
-//     id: '123456789',
-//     description: 'clean dishes',
-//     done:false
-//     },
-//     {
-//         id: '345678912',
-//         description: 'die ',
-//         done:false
-//     },
-//     {
-//         id: '567891234',
-//         description: 'Back to live',
-//         done:true
-//     },
-//     {
-//         id: '789123456',
-//         description: 'by by',
-//         done:false
-//     },
-// ]
+import {todoListt} from "../../services/reducers-actions/todoSlice";
+
+
 const ListTask = () =>{
-const todoList = useSelector((state)=> state.todos);
+    const handleCheck = ()=> {
+
+    }
+    const selectedTodoList = useSelector(todoListt)
 
     return (
         <div className="container">
-            <ul>
+            <ul className="todoitem">
                 {
-                    todoList.map(item=>{ return(
-                    <li key={item.id}>{item.description}</li>
+
+                    selectedTodoList.map(item=>{ return(
+
+                    <li key={item.id}>
+
+                        <Checkbox
+                            checked={item.done}
+                            color="primary"
+                            onChange={handleCheck}
+                            inputProps={{'aria-label': 'secondary checkbox'}}
+                        />
+
+                        <p className={item.done && 'todoItem-done'}>
+                          {item.description}
+                        </p>
+                    </li>
                     )}
 
 
@@ -39,6 +38,6 @@ const todoList = useSelector((state)=> state.todos);
             </ul>
         </div>
     )
-}
+ }
 
 export default ListTask;

@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 import './AddTask.css'
 import {useDispatch} from "react-redux";
-import {todoadd} from "../../services/action-creators/index"
+import {addTodo} from "../../services/reducers-actions/todoSlice";
 
 const AddTask = () =>{
-    
+    const [input, setInput] = useState('')
     const dispatch = useDispatch()
-    const addTodo = () => {
-           dispatch(todoadd(
+    const addTodos = () => {
+           dispatch(addTodo(
                {
                    id: Date.now(),
-                   description: document.getElementById("item").value,
+                   description: input,
                    done:false
                }
            ))
@@ -18,8 +18,8 @@ const AddTask = () =>{
        }
     return (
         <div className="containerr">
-            <input id='item' type="text" />
-            <button onClick={addTodo}>Add Task</button>
+            <input type='text' value={input} onChange={e => setInput(e.target.value)} />
+            <button onClick={addTodos}>Add Task</button>
         </div>
     )
 }
