@@ -1,41 +1,41 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './ListTask.css'
-import {Checkbox} from "@mui/material";
-import {useSelector} from "react-redux";
-import {todoListt} from "../../services/reducers-actions/todoSlice";
+import {useDispatch, useSelector} from "react-redux";
+import Checkbox from '@mui/material/Checkbox';
+import todo from "../../services/reducer/todo";
+import {toggleTodo} from '../../services/action/action'
+
 
 
 const ListTask = () =>{
-    const handleCheck = ()=> {
 
-    }
-    const selectedTodoList = useSelector(todoListt)
+
+
+    const dispatch = useDispatch()
+    const [checked, setChecked] = useState(false);
+
+    const handleCheck = () => dispatch (toggleTodo(todo.id));
+
+    useEffect(() => {
+        setChecked(todo.isDone)
+    }, [todo]);
+
+    const {todos} = useSelector(state => state)
+    console.log(todos);
+
 
     return (
         <div className="container">
-            <ul className="todoitem">
-                {
-
-                    selectedTodoList.map(item=>{ return(
-
-                    <li key={item.id}>
-
-                        <Checkbox
-                            checked={item.done}
-                            color="primary"
-                            onChange={handleCheck}
-                            inputProps={{'aria-label': 'secondary checkbox'}}
-                        />
-
-                        <p className={item.done && 'todoItem-done'}>
-                          {item.description}
-                        </p>
+            {todos.todos.length ? todos.todos.map(todo => (
+                <ul className="todoitem">
+                    <li key={todo.id}>
+                        <Checkbox onChange={handleCheck} checked={checked}/>
+                        <span >{todo.description} </span>
                     </li>
-                    )}
+                </ul>
+            )): <p>No todos <i className="fas fa-poo"></i></p>}
 
 
-                )}
-            </ul>
         </div>
     )
  }

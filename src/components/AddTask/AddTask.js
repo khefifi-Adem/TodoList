@@ -1,25 +1,26 @@
 import React, {useState} from "react";
 import './AddTask.css'
 import {useDispatch} from "react-redux";
-import {addTodo} from "../../services/reducers-actions/todoSlice";
+import {addTodo} from "../../services/action/action";
+
 
 const AddTask = () =>{
-    const [input, setInput] = useState('')
-    const dispatch = useDispatch()
-    const addTodos = () => {
-           dispatch(addTodo(
-               {
-                   id: Date.now(),
-                   description: input,
-                   done:false
-               }
-           ))
-           console.log ('Added seccessfully');
-       }
+    const dispatch = useDispatch();
+    const [value , setValue] = useState('');
+    const handleSubmit = e => {
+        e.preventDefault();
+        dispatch(addTodo(value))
+        setValue('');
+    }
+
+    const handleInput = e => {
+
+      setValue(e.target.value);
+    }
     return (
         <div className="containerr">
-            <input type='text' value={input} onChange={e => setInput(e.target.value)} />
-            <button onClick={addTodos}>Add Task</button>
+            <input value={value} type='text' onChange={handleInput} />
+            <button onClick={handleSubmit}>Add Task</button>
         </div>
     )
 }
