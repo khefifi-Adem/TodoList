@@ -11,6 +11,7 @@ const AddTask = () =>{
     const handleSubmit = e => {
         e.preventDefault();
         dispatch(addTodo(value));
+        console.log('Added successfully')
         setValue('');
     }
 

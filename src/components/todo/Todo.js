@@ -19,7 +19,14 @@ export const Todo = ({ todo }) => {
         <ul className="todoitem">
             <li key={`todo-${todo.id}`}>
                 <Checkbox onChange={ handleChecked } checked={checked}/>
-                <span >{todo.description} </span>
+                <div className='description-container' >
+                    <p>{todo.description}</p>
+                    <span className='icons'>
+                        <i className="fas fa-edit"></i>
+                        <i className="fas fa-trash"></i>
+
+                    </span>
+                </div>
             </li>
         </ul>
     )

@@ -18,7 +18,7 @@ const ListTask = () =>{
             {filterTodos.length ? filterTodos.map(todo => (
                 <Todo key={`todo-${todo.id}`} todo={todo}/>
             )): <p>No todos <i className="fas fa-poo"></i></p>}
-
+                <h4> Nombre des taches: { filterTodos.length } </h4>
 
         </div>
     )

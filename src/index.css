@@ -9,6 +9,8 @@
 --border-radius: 6;
 }
 body {
+  background-attachment: fixed;
+  scroll-behavior: smooth;
   background-image:  linear-gradient(calc(var(--angle) * 1deg), var(--bg-one) calc(var(--stop) * 1%), var(--bg-two) calc(var(--stop) * 1%));
 
   margin: 0;

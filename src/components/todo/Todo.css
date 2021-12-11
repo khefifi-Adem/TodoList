@@ -16,9 +16,29 @@
     height: 30px;
     border-radius: 10px;
 }
-.todoitem li p {
-    flex: 1;
+Checkbox{
+    width: 20%;
+}
+p{
+    margin: 0;
+    padding-right: 70%;
+}
+
+.description-container{
+    display: flex;
+    width: 80%;
+
 }
 .todoItem-done {
     text-decoration: line-through;
+}
+
+.icons i{
+   padding-left: 10px ;
+    padding-right: 10px;
+    margin: 0;
+}
+.icons i:hover{
+    opacity: .7;
+    cursor: pointer;
 }
