@@ -13,13 +13,14 @@
     flex-direction: column;
     align-items: center;
     margin: 15px;
-    width: 70%;
+    width: 100%;
+    justify-content: center;
 }
 
 button {
     color: white;
     background-color: var(--bg-one);
-    width: 10%;
+    width: 20%;
     margin-top: 10px;
     border-radius: 5px;
     border: none;

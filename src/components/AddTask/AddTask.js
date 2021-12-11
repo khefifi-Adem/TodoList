@@ -1,21 +1,21 @@
 import React, {useState} from "react";
 import './AddTask.css'
 import {useDispatch} from "react-redux";
-import {addTodo} from "../../services/action/action";
+import {addTodo} from "../../services/action/actions";
 
 
 const AddTask = () =>{
     const dispatch = useDispatch();
-    const [value , setValue] = useState('');
+    const [value, setValue] = useState('');
+
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(addTodo(value))
+        dispatch(addTodo(value));
         setValue('');
     }
 
     const handleInput = e => {
-
-      setValue(e.target.value);
+        setValue(e.target.value);
     }
     return (
         <div className="containerr">
